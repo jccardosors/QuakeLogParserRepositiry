@@ -19,7 +19,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/openapi/v1.json", "ProjQuakeLogParser API V1 by Jose Claudio Cardoso");
+        c.SwaggerEndpoint("/openapi/v1.json", "ProjQuakeLogParser API V1");
     });
 }
 
