@@ -30,14 +30,14 @@ namespace ProjQuakerLogParser.TEST.ControllerTests
 
             //assert
             var okObjectResult = Assert.IsType<OkObjectResult>(response);
-            var result = Assert.IsType<QuakeParseResponse>(okObjectResult.Value);
+            var result = Assert.IsType<ResultCustomData<QuakeParseResponse>>(okObjectResult.Value);
 
             Assert.NotNull(response);
             Assert.Equal((int)System.Net.HttpStatusCode.OK, okObjectResult.StatusCode);
-            Assert.True(result.data.Values.Count() >= 0);
-            Assert.True(result.data.Values.ToList()[0].Total_kills == 10);
-            Assert.True(result.data.Values.ToList()[0].Players.Contains("Isgalamido"));
-            Assert.True(result.data.Values.ToList()[0].kills.Count() >= 0);
+            Assert.True(result.data.data.Values.Count() >= 0);
+            Assert.True(result.data.data.Values.ToList()[0].Total_kills == 10);
+            Assert.True(result.data.data.Values.ToList()[0].Players.Contains("Isgalamido"));
+            Assert.True(result.data.data.Values.ToList()[0].kills.Count() >= 0);
         }
 
         [Fact]
@@ -65,7 +65,7 @@ namespace ProjQuakerLogParser.TEST.ControllerTests
 
         #region Mocks
 
-        private async Task<QuakeParseResponse> GerarRelatorioLogsRetornoMock()
+        private async Task<ResultCustomData<QuakeParseResponse>> GerarRelatorioLogsRetornoMock()
         {
             var item = new Dictionary<string, Jogo>();
 
@@ -83,7 +83,7 @@ namespace ProjQuakerLogParser.TEST.ControllerTests
 
             var data = new QuakeParseResponse() { data = item };
 
-            return await Task.FromResult(data);
+            return await Task.FromResult(ResultCustomData<QuakeParseResponse>.Sucesso(data));
         }
 
         #endregion

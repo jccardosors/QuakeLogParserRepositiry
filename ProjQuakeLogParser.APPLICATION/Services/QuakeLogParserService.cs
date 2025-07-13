@@ -5,8 +5,7 @@ namespace ProjQuakeLogParser.APPLICATION.Services
 {
     public class QuakeLogParserService : IQuakeLogParser
     {
-
-        public async Task<QuakeParseResponse> GerarRelatorioLogs(string caminhoArquivo)
+        public async Task<ResultCustomData<QuakeParseResponse>> GerarRelatorioLogs(string caminhoArquivo)
         {
             var dadosParser = new QuakeParseResponse() { data = new Dictionary<string, Jogo>() };
             var jogo = new Jogo();
@@ -55,10 +54,10 @@ namespace ProjQuakeLogParser.APPLICATION.Services
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                return ResultCustomData<QuakeParseResponse>.Falha("Erro ao processar o arquivo de log: " + ex.Message);
             }
 
-            return await Task.FromResult(dadosParser);
+            return await Task.FromResult(ResultCustomData<QuakeParseResponse>.Sucesso(dadosParser));
         }
 
         #region Private Methods
