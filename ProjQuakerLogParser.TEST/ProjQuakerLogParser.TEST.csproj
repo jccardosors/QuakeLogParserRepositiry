@@ -22,10 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ServicesTests\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ProjQuakeLogParser.API\ProjQuakeLogParser.API.csproj" />
   </ItemGroup>
 

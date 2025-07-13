@@ -5,6 +5,6 @@ namespace ProjQuakeLogParser.APPLICATION.Intefaces
     public interface IQuakeLogParser
     {
 
-        Task<QuakeParseResponse> GerarRelatorioLogs(string caminhoArquivo);
+        Task<ResultCustomData<QuakeParseResponse>> GerarRelatorioLogs(string caminhoArquivo);
     }
 }
