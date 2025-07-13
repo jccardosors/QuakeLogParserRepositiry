@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjQuakeLogParser.IOC", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjQuakeLogParser.API", "ProjQuakeLogParser.API\ProjQuakeLogParser.API.csproj", "{B064EF11-F534-77C1-D40B-121390194D1E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjQuakerLogParser.TEST", "ProjQuakerLogParser.TEST\ProjQuakerLogParser.TEST.csproj", "{BADDCC61-3BEA-4DDD-BF97-D6989042ACEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B064EF11-F534-77C1-D40B-121390194D1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B064EF11-F534-77C1-D40B-121390194D1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B064EF11-F534-77C1-D40B-121390194D1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BADDCC61-3BEA-4DDD-BF97-D6989042ACEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BADDCC61-3BEA-4DDD-BF97-D6989042ACEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BADDCC61-3BEA-4DDD-BF97-D6989042ACEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BADDCC61-3BEA-4DDD-BF97-D6989042ACEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
