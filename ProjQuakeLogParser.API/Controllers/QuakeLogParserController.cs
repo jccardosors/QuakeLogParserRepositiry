@@ -19,11 +19,11 @@ namespace ProjQuakeLogParser.API.Controllers
         [HttpGet("GerarRelatorioLogs")]
         public async Task<IActionResult> GerarRelatorioLogs()
         {
-            var caminhoArquivo = Environment.CurrentDirectory;
-            var nomeArquivo = _configuration["ArquivoLogQuake"];
+            string? caminhoArquivo = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
+            string? nomeArquivo = _configuration["ArquivoLogQuake"];
 
             caminhoArquivo = $"{caminhoArquivo}\\ResourceData\\{nomeArquivo}";
-            if (string.IsNullOrEmpty(caminhoArquivo))
+            if (!System.IO.File.Exists(caminhoArquivo))
             {
                 return BadRequest("Caminho do arquivo de log não configurado.");
             }
@@ -31,7 +31,6 @@ namespace ProjQuakeLogParser.API.Controllers
             var response = await _quakeLogParser.GerarRelatorioLogs(caminhoArquivo);
 
             return Ok(response);
-
         }
     }
 }

@@ -40,6 +40,28 @@ namespace ProjQuakerLogParser.TEST.ControllerTests
             Assert.True(result.data.Values.ToList()[0].kills.Count() >= 0);
         }
 
+        [Fact]
+        public async Task GerarRelatorioLogs_FALHA()
+        {
+            //assert    
+            var iQuakeLogParseMock = new Mock<IQuakeLogParser>();
+            var configurationMock = new Mock<IConfiguration>();
+
+            iQuakeLogParseMock.Setup(p => p.GerarRelatorioLogs(It.IsAny<string>())).Returns(GerarRelatorioLogsRetornoMock());
+            configurationMock.SetupGet(x => x[It.Is<string>(s => s == "ArquivoLogQuake")]).Returns("");
+
+            //act
+            var controller = new QuakeLogParserController(iQuakeLogParseMock.Object, configurationMock.Object);
+            var response = await controller.GerarRelatorioLogs();
+
+            //assert
+            var BadRequestObjectResult = Assert.IsType<BadRequestObjectResult>(response);
+
+            Assert.NotNull(response);
+            Assert.Equal((int)System.Net.HttpStatusCode.BadRequest, BadRequestObjectResult.StatusCode);
+            Assert.Equal("Caminho do arquivo de log não configurado.", BadRequestObjectResult.Value);
+        }
+
 
         #region Mocks
 
