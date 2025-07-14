@@ -1,11 +1,4 @@
-﻿using Moq;
-using ProjQuakeLogParser.APPLICATION.Models;
-using ProjQuakeLogParser.APPLICATION.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ProjQuakeLogParser.APPLICATION.Services;
 
 namespace ProjQuakerLogParser.TEST.ServicesTests
 {
