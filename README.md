@@ -1,7 +1,7 @@
 # Solution SlnQuakeLogParser
 <p>
   <h2>[Descrição do Projeto]</h2>
- Projeto construído lêr um arquivo de log do jogo Quake 3 Arena. O log registra todas as informações dos jogos, quando um jogo começa, quando termina, quem matou quem, entre outros.
+ Projeto construído para lêr um arquivo de log do jogo Quake 3 Arena. O log registra todas as informações dos jogos, quando um jogo começa, quando termina, quem matou quem, entre outros.
 <br/>
 O parser construído consegue ler o arquivo, agrupar os dados de cada jogo, e em cada jogo coleta informações de morte dos jogadores.
 </p>
