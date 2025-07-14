@@ -33,7 +33,7 @@ O parser construído consegue ler o arquivo, agrupar os dados de cada jogo, e em
   <h2>[Acesso ao Projeto]</h2>
   Siga alguns passos abaixo para rodar o projeto:
   <ul>
-    <li>Clone ou baixe o repositório pelo link </li>
+    <li>Clone ou baixe o repositório pelo link <a href="#">https://github.com/jccardosors/QuakeLogParserRepositiry</a> </li>
     <li>Abra o projeto e defina o <b>ProjQuakeLogParser.API</b> como sendo o projeto <b>Start Project</b></li></li>
     <li>Com a api rodando consuma o endpoint <b>GerarRelatorioLogs</b> e este deve fazer a leitura do arquivo de log</li>
   </ul>
