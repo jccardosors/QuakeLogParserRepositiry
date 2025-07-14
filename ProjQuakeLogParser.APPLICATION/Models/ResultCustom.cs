@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProjQuakeLogParser.APPLICATION.Models
+﻿namespace ProjQuakeLogParser.APPLICATION.Models
 {
     public class ResultCustom
-    {       
+    {
         protected ResultCustom(bool ehSucesso, string mensagem)
         {
             EhSucesso = ehSucesso;

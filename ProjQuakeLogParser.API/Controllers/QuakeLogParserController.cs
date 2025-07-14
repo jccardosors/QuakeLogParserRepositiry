@@ -16,6 +16,11 @@ namespace ProjQuakeLogParser.API.Controllers
             _configuration = configuration;
         }
 
+        /// <summary>
+        /// Gera um relatório a partir do arquivo de log do Quake.
+        /// </summary>
+        /// <returns>Os logs do arquivo separados por game, jogadores e mortos</returns>
+        /// <response code="200">Retorna o relatório gerado com sucesso.</response>
         [HttpGet("GerarRelatorioLogs")]
         public async Task<IActionResult> GerarRelatorioLogs()
         {
