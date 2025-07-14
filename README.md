@@ -24,7 +24,7 @@ O parser construído consegue ler o arquivo, agrupar os dados de cada jogo, e em
   <ul>
     <li><b> Projeto ProjQuakeLogParser.API:</b> Projeto que representa a API, responsável por expor os endpoints, validações e armazenamento do arquivo de log.</li>
     <li><b> Projeto ProjQuakeLogParser.APPLICATION:</b> Projeto responsável por implementar as regras de negócio e tendo este como sua principal ação.</li>
-    <li><b> Projeto ProjQuakeLogParser.IOC:</b> Projeto responsável por fazer o registro da injeção de dependência.</li>
+    <li><b> Projeto ProjQuakeLogParser.IOC:</b> Projeto responsável por fazer o registro das Interfaces e suas classes de serviço (Injeção de dependência).</li>
     <li><b> Projeto ProjQuakeLogParser.TEST:</b> Projeto responsável por implementar os testes unitários das controllers e das classes de serviço.</li>
   </ul>
 </p>
