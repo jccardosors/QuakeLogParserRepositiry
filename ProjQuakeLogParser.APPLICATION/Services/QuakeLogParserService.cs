@@ -27,19 +27,19 @@ namespace ProjQuakeLogParser.APPLICATION.Services
                         //verifica inicio do game
                         if (linha.Contains("InitGame"))
                         {
-                            ProcessaInicioJogo(ref jogo, ref contadorJogo);
+                            ProcessarInicioJogo(ref jogo, ref contadorJogo);
                         }
 
                         //identifica o player
                         if (linha.Contains("ClientUserinfoChanged"))
                         {
-                            ProcessaIndenficacaoJogador(ref nomeJogador, linha, ref jogadores);
+                            ProcessarIndenficacaoJogador(ref nomeJogador, linha, ref jogadores);
                         }
 
                         //verifica se é uma morte
                         if (linha.Contains("Kill"))
                         {
-                            ProcessaMorteJogador(linha, mortos, mortosPeloWorld);
+                            ProcessarMortePorJogador(linha, mortos, mortosPeloWorld);
                         }
 
                         //verifica se o game terminou
@@ -62,13 +62,13 @@ namespace ProjQuakeLogParser.APPLICATION.Services
 
         #region Private Methods
 
-        private void ProcessaInicioJogo(ref Jogo jogo, ref int contadorJogo)
+        private void ProcessarInicioJogo(ref Jogo jogo, ref int contadorJogo)
         {
             jogo = new Jogo() { Total_kills = 0, Players = new string[] { }, kills = new Dictionary<string, int>() };
             contadorJogo++;
         }
 
-        private void ProcessaIndenficacaoJogador(ref string nomeJogador, string linha, ref List<string> jogadores)
+        private void ProcessarIndenficacaoJogador(ref string nomeJogador, string linha, ref List<string> jogadores)
         {
             string[] delimitadorStrings = [@"n\", @"\t"];
             nomeJogador = linha.Split(delimitadorStrings, StringSplitOptions.RemoveEmptyEntries)[1];
@@ -79,26 +79,28 @@ namespace ProjQuakeLogParser.APPLICATION.Services
             }
         }
 
-        private void ProcessaMorteJogador(string linha, Dictionary<string, int> mortos, Dictionary<string, int> mortosPeloWorld)
+        private void ProcessarMortePorJogador(string linha, Dictionary<string, int> mortos, Dictionary<string, int> mortosPeloWorld)
         {
-            string[] delimitadorStrings = [@"killed", @"by"];
-            var nomeMorto = linha.Split(delimitadorStrings, StringSplitOptions.RemoveEmptyEntries)[1].Trim();
+            string[] delimitadorStrings = [@":", @"killed"];
+            var nomeMorto = linha.Split(delimitadorStrings, StringSplitOptions.RemoveEmptyEntries)[3].Trim();
 
-            if (mortos.ContainsKey(nomeMorto))
-            {
-                mortos[nomeMorto]++;
-            }
-            else
-            {
-                mortos.Add(nomeMorto, 1);
-            }
-
-            if (linha.Contains("<world>"))
+            if (nomeMorto.Equals("<world>"))
             {
                 if (!mortosPeloWorld.ContainsKey(nomeMorto))
                 {
                     mortosPeloWorld.Add(nomeMorto, 0);
                     mortosPeloWorld[nomeMorto]++;
+                }
+            }
+            else
+            {
+                if (mortos.ContainsKey(nomeMorto))
+                {
+                    mortos[nomeMorto]++;
+                }
+                else
+                {
+                    mortos.Add(nomeMorto, 1);
                 }
             }
         }
